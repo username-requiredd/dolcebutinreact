@@ -1,0 +1,109 @@
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+  
+}
+
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: #aaa;
+  
+}
+
+@media (min-width: 600px) {
+  .form-div {
+    width: 60%;
+  }
+}
+
+@media (max-width: 580px) {
+  .form-div {
+    width: 90%;
+  }
+}
+
+h6 {
+  font-size: 16px; /* Adjust as needed */
+  color: #333; /* Your desired text color */
+  margin: 10px 0; /* Adjust margin as needed */
+  padding: 0; /* Remove default padding */
+  font-weight: normal; /* Optionally adjust font weight */
+}
+
+
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 columns on larger screens */
+  gap: 20px;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+/* Just for styling purposes */
+.grid-item {
+  background-color: #f0f0f0;
+  /* padding: 20px; */
+  /* text-align: center; */
+}
+
+ /* Media query for smaller screens */
+ @media screen and (max-width: 580px){
+  .grid-container{
+    gap: 10px;
+  }
+  .grid-item{
+      height: auto;
+  }
+  span{
+      font-size: 13px;
+  }
+img{
+  height: 150px;
+}
+ }
+
+/* pagination */
+.soft-pagination{
+  text-align:center;
+  background: rgb(87,23,171);
+  background: linear-gradient(90deg, rgba(87,23,171,1) 0%, rgba(246,0,255,1) 100%);
+  margin-top:350px;width:100%;
+  -webkit-box-shadow: 1px 7px 14px 0px rgba(189,178,189,1);
+  -moz-box-shadow: 1px 7px 14px 0px rgba(189,178,189,1);
+  box-shadow: 1px 7px 14px 0px rgba(189,178,189,1);  
+  }
+  .soft-pagination-items{
+  color: #ffffff;
+  cursor: pointer; 
+  }
+  .soft-pagination-items li{
+  display: inline-block;
+  padding: 15px 25px;font-weight: 800;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  }
+  .soft-pagination-items li.active{
+  background: #77f2de; color:#000;
+  }
+  h2 a{
+    color:hotpink;
+    text-align:center;
+    text-decoration:none;
+  }
+  .soft-pagination-items li:hover{
+  background: linear-gradient(120deg, rgba(87,23,171,1) 100%, rgba(246,0,255,1) 10%);
+  color:#f288cb;
+  }

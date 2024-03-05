@@ -1,0 +1,34 @@
+.skeleton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rectangular {
+  width: 100%;
+}
+
+.firsttext {
+  width: 80%;
+}
+
+.secondtext {
+  width: 50%;
+}
+ @media screen {
+  
+ }
+
+ @media screen and (max-width: 580px){
+  .grid-container{
+    gap: 10px;
+  }
+
+  .skeleton{
+    height: 200px;
+  }
+  .grid-item{
+      height: auto;
+  }
+
+ }

@@ -1,0 +1,97 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import useFetch from "../../hooks/useFetch";
+import ProductCard from "../../components/productcard/Productcard";
+import { useState } from "react";
+import "./product.css";
+import ButtonGroup from "../../components/button/Button";
+import "react-toastify/dist/ReactToastify.css";
+import renderSkeleton from "../../components/loaders/skeleton";
+import debounce from "lodash.debounce";
+const Products = () => {
+  const [state, setState] = useState("");
+  const [page, setPage] = useState(10);
+  const url = `https://dummyjson.com/products?limit=12&skip=${page}`;
+  const { data, error, loading } = useFetch(url);
+  const searchUrl = `https://dummyjson.com/products/search?q=${state}`;
+  const search = useFetch(searchUrl);
+  console.log("search data", search);
+  const renderSkeletonColumns = () => {
+    let columns = [];
+    for (let i = 0; i < 8; i++) {
+      columns.push(renderSkeleton().columns);
+    }
+    return columns;
+  };
+
+  const debouncedSearch = debounce((query) => {
+    // Perform search operation here
+  }, 300);
+
+  const handleSearchChange = (e) => {
+    const value = e.target.value;
+    setState(value);
+    debouncedSearch(value);
+  };
+  return (
+    <>
+      <div className=" p-2  container-lg">
+        <div className="form-group  mb-4 form-div mx-auto ">
+          <input
+            type="text"
+            className="form-control "
+            placeholder="Search..."
+            value={state}
+            onChange={(e) => handleSearchChange(e)}
+          />
+        </div>
+        <div className="grid-container ">
+          {loading || search.loading ? (
+            renderSkeletonColumns()
+          ) : error ? (
+            <h6>Error getting data!</h6>
+          ) : search!==  search.data?.products ? (
+            state !== "" && search.data.products.length > 0 ? (
+              search.data.products.map(({ images, price, title, id }) => (
+                <ProductCard
+                  key={id}
+                  images={images}
+                  price={price}
+                  title={title}
+                  id={id}
+                />
+              ))
+            ) : state !== "" && search.data.products.length === 0 ? (
+              <h6>
+                That products got lost in the Bermuda Triangle. We sent a search
+                plane but we are not too hopefull. {":)"}
+              </h6>
+            ) : (
+              data.products.map(({ images, price, title, id }) => (
+                <ProductCard
+                  images={images}
+                  price={price}
+                  title={title}
+                  id={id}
+                />
+              ))
+            )
+          ) : null}
+        </div>
+      </div>
+      <div
+        className={`${
+          state !== "" && search.data && search.data.products.length > 0
+            ? "d-none"
+            : "d-block"
+        }`}
+      >
+        <div className="mx-auto">
+          <ButtonGroup setPage={setPage} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Products;
