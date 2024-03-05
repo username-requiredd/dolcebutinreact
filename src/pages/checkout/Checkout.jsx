@@ -68,9 +68,6 @@ const Checkout = () => {
               <div style={{ display: "table", margin: "auto" }}>
                 <span className="step step_complete">
                   {" "}
-                  <a href="#" className="check-bc">
-                    Cart
-                  </a>{" "}
                   <span className="step_line step_complete"> </span>{" "}
                   <span className="step_line backline"> </span>{" "}
                 </span>
@@ -81,9 +78,6 @@ const Checkout = () => {
                   </a>{" "}
                   <span className="step_line "> </span>{" "}
                   <span className="step_line step_complete"> </span>{" "}
-                </span>
-                <span className="step_thankyou check-bc step_complete">
-                  Thank you
                 </span>
               </div>
             </div>

@@ -38,6 +38,7 @@ const Category = () => {
                 images={images}
                 price={price}
                 title={title}
+                id={id}
                 key={id}
               />
             ))}

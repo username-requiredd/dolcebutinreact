@@ -174,12 +174,14 @@ const SignUp = () => {
                       </div>
                       <div className="col-12">
                         <div className="d-grid">
-                          <button
-                            className="btn bsb-btn-xl btn-primary"
-                            onClick={() => validate()}
-                          >
-                            Sign up
-                          </button>
+                          <Link to={isValid ? "/shop" : ""}>
+                            <button
+                              className="btn bsb-btn-xl btn-primary"
+                              onClick={() => validate()}
+                            >
+                              Sign up
+                            </button>
+                          </Link>
                         </div>
                       </div>
                     </div>

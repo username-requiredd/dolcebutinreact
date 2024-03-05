@@ -11,7 +11,6 @@ import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlin
 const Navbar = () => {
   const { cart } = useCart();
   const cartCount = cart.length;
-  console.log(cartCount);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
   const handleNavbarToggle = () => {
@@ -153,9 +152,11 @@ const Navbar = () => {
                 {cartCount}
               </span>
             </div>
-            <PersonOutlineOutlinedIcon
-              style={{ color: "#666", fontWeight: "normal" }}
-            />
+            <Link to={"/signup"}>
+              <PersonOutlineOutlinedIcon
+                style={{ color: "#666", fontWeight: "normal" }}
+              />
+            </Link>
           </div>
         </div>
       </nav>

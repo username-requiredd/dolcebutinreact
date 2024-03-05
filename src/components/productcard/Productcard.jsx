@@ -12,6 +12,7 @@ const ProductCard = ({ images, price, title, id }) => {
   return (
     <>
       <Link
+        key={id}
         to={`/details/${id}`}
         onClick={() =>
           window.scrollTo({
