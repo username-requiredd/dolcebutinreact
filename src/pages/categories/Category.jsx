@@ -26,7 +26,7 @@ const Category = () => {
   return (
     <>
       <div className="span mt-5 mb-3 px-2 text-bold"></div>
-      <div className="">
+      <div className="container-lg">
         {loading ? (
           <div className="grid-container">{renderSkeletonColumns()}</div>
         ) : error ? (

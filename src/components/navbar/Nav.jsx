@@ -4,23 +4,23 @@ import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import MenuIcon from "@mui/icons-material/Menu";
 import PersonIcon from "@mui/icons-material/Person";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import { useCart } from "../../contex/Cartcontex";
 import ShoppingBasketOutlinedIcon from "@mui/icons-material/ShoppingBasketOutlined";
 const Navbar = () => {
   const { cart } = useCart();
   const cartCount = cart.length;
-  const [isNavbarOpen, setIsNavbarOpen] = useState(false);
+  // const [isNavbarOpen, setIsNavbarOpen] = useState(false);
 
-  const handleNavbarToggle = () => {
-    setIsNavbarOpen(!isNavbarOpen);
-  };
+  // const handleNavbarToggle = () => {
+  //   setIsNavbarOpen(!isNavbarOpen);
+  // };
 
   return (
     <>
       <nav className="navbar navbar-expand-lg  nav shadow-sm">
-        <div className="container-fluid">
+        <div className="container-lg">
           <button
             className="navbar-toggler"
             type="button"
@@ -43,33 +43,54 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav ms-auto">
               <li className="nav-item">
-                <a
-                  className="nav-link mx-2 active"
-                  aria-current="page"
-                  href="#"
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? " nav-link mx-2" : " nav-link mx-2"
+                  }
+                  to={"/shop"}
                 >
-                  Home
-                </a>
+                  All
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mx-2" to={"/shop/tops"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-danger nav-link mx-2" : " nav-link mx-2"
+                  }
+                  to={"/shop/tops"}
+                >
                   Tops
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mx-2" to={"/shop/sunglasses"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-danger nav-link mx-2" : " nav-link mx-2"
+                  }
+                  to={"/shop/sunglasses"}
+                >
                   Sunglasses
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mx-2" to={"/shop/skincare"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-danger nav-link mx-2" : " nav-link mx-2"
+                  }
+                  to={"/shop/skincare"}
+                >
                   Skincare
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item">
-                <Link className="nav-link mx-2" to={"/shop/womens-bags"}>
+                <NavLink
+                  className={({ isActive }) =>
+                    isActive ? "text-danger nav-link mx-2" : " nav-link mx-2"
+                  }
+                  to={"/shop/womens-bags"}
+                >
                   Womens-bags
-                </Link>
+                </NavLink>
               </li>
               <li className="nav-item dropdown">
                 <a
@@ -87,20 +108,28 @@ const Navbar = () => {
                   aria-labelledby="navbarDropdownMenuLink"
                 >
                   <li>
-                    <Link
-                      className="nav-link mx-2 dropdown-item"
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-danger nav-link mx-2"
+                          : " nav-link mx-2"
+                      }
                       to={"/shop/mens-watches"}
                     >
                       Mens-watches
-                    </Link>
+                    </NavLink>
                   </li>
                   <li>
-                    <Link
-                      className="nav-link mx-2 dropdown-item"
+                    <NavLink
+                      className={({ isActive }) =>
+                        isActive
+                          ? "text-danger nav-link mx-2"
+                          : " nav-link mx-2"
+                      }
                       to={"/shop/womens-watches"}
                     >
                       Womens-Watches
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </li>
@@ -125,12 +154,15 @@ const Navbar = () => {
           </div>
           <div className="d-flex">
             <div className="cart-icon" style={{ position: "relative" }}>
-              <Link to={"/cart"}>
+              <NavLink
+                to={"/cart"}
+                className={({ isActive }) => (isActive ? "text-danger " : " ")}
+              >
                 <ShoppingCartOutlinedIcon
                   style={{ color: "#666", fontWeight: "normal" }}
                   className="mx-2"
                 />
-              </Link>
+              </NavLink>
               {/* <img
                 className="mx-1"
                 src="/assets/images/bag.svg"

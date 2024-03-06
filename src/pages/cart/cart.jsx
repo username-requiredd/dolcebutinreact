@@ -92,9 +92,9 @@ const Cart = () => {
         }}
       />
 
-      <section className="bg-light my-5">
-        <div className="container">
-          <div className="row">
+      <section className="bg-light  my-5">
+        <div className="container-lg">
+          <div className="row mx-auto">
             {/* cart */}
             <div className="col-lg-9">
               <div className="card border shadow-0">

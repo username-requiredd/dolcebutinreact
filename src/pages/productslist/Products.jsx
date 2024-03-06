@@ -12,7 +12,7 @@ const Products = () => {
   const [state, setState] = useState("");
   const [page, setPage] = useState(70);
   const [searchQuery, setSearchQuery] = useState("");
-  const url = `https://dummyjson.com/products?limit=10&skip=${page}`;
+  const url = `https://dummyjson.com/products?limit=12&skip=${page}`;
   const searchUrl = `https://dummyjson.com/products/search?q=${state}`;
 
   const { data, error, loading } = useFetch(searchQuery ? searchUrl : url);
@@ -74,10 +74,10 @@ const Products = () => {
         </div>
         <div
           className={`${
-            data.products && data.products.length === 0 ? "d-none" : "d-block"
-          }`}
+            searchQuery ? "d-none" : "d-flex justify-content-center"
+          } align-items-center`}
         >
-          <div className="mx-auto">
+          <div>
             <ButtonGroup setPage={setPage} />
           </div>
         </div>
